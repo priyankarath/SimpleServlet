@@ -10,34 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Login
- */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Default constructor.
-	 */
+	//default constructor
 	public Login() {
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
@@ -46,11 +26,14 @@ public class Login extends HttpServlet {
 		String n = request.getParameter("userName");
 		String p = request.getParameter("userPass");
 
+		//if the password == "servlet"
 		if (p.equals("servlet")) {
+			//Create object of RequestDispatcher and send the Servlet welcome 
 			RequestDispatcher rd = request.getRequestDispatcher("welcome");
 			rd.forward(request, response);
 		} else {
 			out.print("Sorry UserName or Password Error!");
+			//if in case wrong username password return back to index.html
 			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 			rd.include(request, response);
 		}
