@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>SimpleServlet</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <servlet-name>XMLServlet</servlet-name>
-    <servlet-class>com.sumit.simpleservlet.XMLServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>XMLServlet</servlet-name>
-    <url-pattern>/xmlservlet</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>SimpleServlet</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>XMLServlet</servlet-name>
+		<servlet-class>com.sumit.simpleservlet.XMLServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>XMLServlet</servlet-name>
+		<url-pattern>/xmlservlet</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>filterOne</filter-name>
+		<filter-class>com.sumit.filters.ServFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>filterOne</filter-name>
+		<url-pattern>/xmlservlet</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>com.sumit.reqdispatcher.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Welcome</servlet-name>
+		<servlet-class>com.sumit.reqdispatcher.Welcome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Welcome</servlet-name>
+		<url-pattern>/welcome</url-pattern>
+	</servlet-mapping>
 </web-app>
